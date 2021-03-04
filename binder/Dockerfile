@@ -38,7 +38,7 @@ RUN wget --output-document=racket-install.sh -q ${RACKET_INSTALLER_URL} && \
     echo "yes" | sh racket-install.sh --create-dir --unix-style --dest ${RACKET_INSTALL_DIR} && \
     rm racket-install.sh
 
-ENV PATH="$PATH:${RACKET_INSTALL_DIR}/bin" # contains the raco command after installation 
+ENV PATH="$PATH:${RACKET_INSTALL_DIR}/bin"
 ENV SSL_CERT_FILE="/etc/ssl/certs/ca-certificates.crt"
 ENV SSL_CERT_DIR="/etc/ssl/certs"
 
