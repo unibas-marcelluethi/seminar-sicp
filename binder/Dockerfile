@@ -29,20 +29,16 @@ WORKDIR ${HOME}
 USER ${USER}
 
 
-# The following snippet is licensed under MIT license
-# SEE: https://github.com/jackfirth/racket-docker
-
 
 ENV RACKET_INSTALLER_URL="http://mirror.racket-lang.org/installers/7.8/racket-7.8-x86_64-linux-natipkg.sh"
 ENV RACKET_VERSION=7.8
-
-RUN mkdir ${HOME}/bin
+ENV RACKET_INSTALL_DIR="/tmp/"
 
 RUN wget --output-document=racket-install.sh -q ${RACKET_INSTALLER_URL} && \
-    echo "yes" | sh racket-install.sh --create-dir --unix-style --dest ${HOME} && \
+    echo "yes" | sh racket-install.sh --create-dir --unix-style --dest ${RACKET_INSTALL_DIR} && \
     rm racket-install.sh
 
-ENV PATH="$PATH:${HOME}/bin"
+ENV PATH="$PATH:${RACKET_INSTALL_DIR}/bin" # contains the raco command after installation 
 ENV SSL_CERT_FILE="/etc/ssl/certs/ca-certificates.crt"
 ENV SSL_CERT_DIR="/etc/ssl/certs"
 
