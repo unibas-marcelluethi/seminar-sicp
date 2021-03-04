@@ -37,6 +37,13 @@ Nun müssen Sie den kern noch in Jupyter registrieren
 raco iracket install
 ```
 
+Falls der Befehl mit der Fehlermeldung ```cannot find jupyter executable``` abbricht müssen Sie
+den Pfad zum Jupyter-Executable (also z.B. ```jupyter.exe``` unter Windows) explizit mit angeben:
+```
+raco iracket install --jupyter-exe c:\Users\<YOUR_USERNAME>\anaconda3\Scripts\jupyter.exe
+```
+
+
 Wenn Sie nun jupyter-notebooks starten, sollten Sie den iRacket Kern wie auf dem Bild unten auswählen können:
 
 ![jupyter-tree](images/jupyter-tree.png)
