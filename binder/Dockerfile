@@ -53,6 +53,8 @@ RUN raco pkg config --set catalogs \
     "https://pkgs.racket-lang.org" \
     "https://planet-compats.racket-lang.org"
 
+RUN raco pkg install --scope user  --auto sicp
+
 RUN raco pkg install --scope user  --auto iracket
 
 RUN raco iracket install
